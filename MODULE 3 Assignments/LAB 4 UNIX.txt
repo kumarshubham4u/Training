@@ -1,0 +1,18 @@
+LAB 4
+***************
+1. man ls > lsdoc
+     OR
+	ls|help >lsdoc
+
+2.cat lsdoc|more
+
+3. cat > data.txt < lsdoc
+
+4. cat data.txt
+
+5.rm data.txt
+
+6.cat data.txt 1> newfile.txt 2> errorlog.txt
+  cat errorlog.txt
+
+7. cat errorlog.txt

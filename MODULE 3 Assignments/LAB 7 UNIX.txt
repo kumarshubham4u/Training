@@ -1,0 +1,42 @@
+LAB 7
+************************
+7.1
+  1. chmod u-r abc.txt
+    cat abc.txt
+    cat: abc.txt: Permission denied
+
+  2.chmod u-w abc.txt
+     vi abc.txt
+     "abc.txt" [Permission Denied]  
+  3.  chmod u+rw abc.txt
+  4. chmod go-wx abc.txt
+  5. chmod g+r abc.txt
+  6. chmod a+r abc.txt
+  7. chmod o-r abc.txt
+  8. chmod u+x chap1
+  9. chmod a+x add.c
+  10. chmod u-x,go+r aa.c
+  11.chmod u+x a.c kk.c nato myfile
+
+7.2   mkdir demo
+      cp /etc/passwd ~/demo
+
+  	1. ls demo
+	2.chmod a-r demo
+	   ls demo
+	    ls: cannot open directory demo: Permission denied
+	3. chmod a-w demo
+	   cp /etc/profile ~/demo
+		cp: cannot create regular file `/home/SEP19_RDBMS10/demo/profile': Permission denied
+	4.rm -r demo
+		rm: descend into write-protected directory `demo'?
+	5. chmod a-x demo
+ 		cd ~/demo
+		-bash: cd: /home/SEP19_RDBMS10/demo: Permission denied
+
+
+
+
+
+
+   

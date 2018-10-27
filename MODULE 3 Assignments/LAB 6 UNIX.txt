@@ -1,0 +1,14 @@
+LAB 6
+****************
+1. ESC + B
+2. ESC + F
+3. CTRL + A
+4. CTRL + E
+5. CTRL + K
+6. CTRL + U
+7.TAB
+8.history
+9. CTRL + R => ls
+10.!!
+11.!3
+12.

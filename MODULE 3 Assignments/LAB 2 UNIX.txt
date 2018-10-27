@@ -1,0 +1,21 @@
+LAB – 2 UNIX File System
+**************************************
+Q-2.1)
+
+
+
+Q-2.2)
+
+cd /
+ls
+cd bin
+cd ..
+cd etc
+cd ..
+cd usr
+cd ..
+cd dev
+cd ..
+cd var
+cd ..
+

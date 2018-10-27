@@ -1,0 +1,47 @@
+LAB 11
+****************************
+
+1.
+a) $ sed -n '2,6'p employee.dat |sed -n '/Pune/'p
+Albert 32342 GRIT Pune
+Richard 23232 ACS Pune
+
+b)$ sed 5q employee.dat
+James 76382 PACE Chennai
+John 34228 GRIT Hyderabad
+Peter 22321 GE Bangalore
+Albert 32342 GRIT Pune
+Mathew 23222 PACE Mumbai
+
+c)$ sed 's/Chennai/Pune/' employee.dat
+James 76382 PACE Pune
+John 34228 GRIT Hyderabad
+Peter 22321 GE Bangalore
+Albert 32342 GRIT Pune
+Mathew 23222 PACE Mumbai
+Richard 23232 ACS Pune
+
+d) sed 's/e/UNIX/g' employee.dat
+JamUNIXs 76382 PACE ChUNIXnnai
+John 34228 GRIT HydUNIXrabad
+PUNIXtUNIXr 22321 GE BangalorUNIX
+AlbUNIXrt 32342 GRIT PunUNIX
+MathUNIXw 23222 PACE Mumbai
+Richard 23232 ACS PunUNIX
+
+e)$ sed '/^$/d' employee.dat
+James 76382 PACE Chennai
+John 34228 GRIT Hyderabad
+Peter 22321 GE Bangalore
+Albert 32342 GRIT Pune
+Mathew 23222 PACE Mumbai
+Richard 23232 ACS Pune
+
+f)$ sed '3,5d' employee.dat
+James 76382 PACE Chennai
+John 34228 GRIT Hyderabad
+Richard 23232 ACS Pune
+
+
+2.sed -n '/PACE/'p employee.dat > PACE.dat
+

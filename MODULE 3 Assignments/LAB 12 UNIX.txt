@@ -1,0 +1,81 @@
+LAB 12
+*****************************
+
+1. alias l1='ls -s'
+2. alias
+3. unalias l1
+4. who am i
+SEP19_RDBMS10 pts/77       2018-10-18 10:10 (10.76.77.5)
+
+5. paste -d ":" a.txt b.txt
+Hi, How are you?:I am fine. Thank You.
+
+6.$ head -5 /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+
+7. $ tail -3 /etc/passwd
+SEP19_RDBMS19:x:1987:1987::/home/SEP19_RDBMS19:/bin/bash
+SEP19_RDBMS20:x:1988:1988::/home/SEP19_RDBMS20:/bin/bash
+SEP19_RDBMS21:x:1989:1989::/home/SEP19_RDBMS21:/bin/bash
+
+8.$ head -n-3 /etc/passwd
+
+9.$ tail -20 /etc/passwd
+
+10. sed -n '7'p /etc/passwd
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+
+13.$bc
+bc 1.06.95
+Copyright 1991-1994, 1997, 1998, 2000, 2004, 2006 Free Software Foundation, Inc.
+This is free software with ABSOLUTELY NO WARRANTY.
+For details type `warranty'.
+150+370
+520
+670-870
+-200
+500*345
+172500
+620/24
+25
+quit
+
+14. expr 200 + 398
+598
+
+15.$ factor
+   20
+
+   20: 2 2 5
+
+16.$ ln -s ~/errorlog.txt ~/errors
+   $ ln ~/errorlog.xt ~/errors1
+
+17.ls -i errors
+   ls -i errors1
+   ls -i errorlog.txt
+
+18. rm errorlog.txt
+    ls -l errors1
+    -rwxrwxrwx 1 SEP19_RDBMS10 SEP19_RDBMS10 41 Oct 16 14:27 errors1
+    rm errors1
+
+19.  ls -l errors
+lrwxrwxrwx 1 SEP19_RDBMS10 SEP19_RDBMS10 31 Oct 18 14:37 errors -> /home/SEP19_RDBMS10/errorlog.txt
+
+20. cp /etc/passwd ~/
+
+    $ du ~/passwd
+    32      /home/SEP19_RDBMS10/passwd
+    
+    $ gzip passwd
+
+    $ du ~/passwd.gz
+    8       /home/SEP19_RDBMS10/passwd.gz
+
+21. df
+

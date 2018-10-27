@@ -1,0 +1,59 @@
+LAB 10
+*************************
+1.$ grep "^s" student.dat| cut -d" " -f1
+suresh
+suraj
+suraj
+
+
+2. cut -d" " -f1 student.dat|egrep -e j$ -e h$
+suresh
+suraj
+manoj
+manoj
+suraj
+
+3.grep '65' student.dat| cut -d" " -f1
+suraj
+
+4.egrep -e 'sharma' -e 'varma' student.dat
+manoj sharma 55 B
+rahul varma 87 A++
+
+
+
+5.grep 'A$' student.dat| cut -d" " -f1
+suraj
+
+
+6.$[SEP19_RDBMS10@NDAUNIX ~]$ grep '^..[r]' student.dat
+suresh bahrti 88 A++
+suraj pancholi 65 A
+suraj rajguru 45 B
+
+7.$ grep '^.[art]' student.dat
+rameshchandra mane 79 A+
+rajat bhosle 25 C
+manoj sharma 55 B
+rahul varma 87 A++
+manoj pandey 56 B
+
+8.$ cut -d" " -f1 student.dat|grep '^.....$'
+rajat
+suraj
+manoj
+rahul
+manoj
+suraj
+
+9.$ cut -d" " -f1 student.dat|grep '^.......'
+rameshchandra
+
+
+10.]$ cut -d" " -f1,2,3 student.dat|grep "6$"
+manoj pandey 56
+
+
+11.$ grep 'A+$' student.dat
+rameshchandra mane 79 A+
+

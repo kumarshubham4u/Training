@@ -1,0 +1,271 @@
+ LAB13
+************************************
+
+
+
+1.
+
+$vi marks.sh
+
+	awk '/Unix/{c1++;tot1+=$4}
+	END{printf "Average Marks for Unix: %d\n" ,tot1/c1}' emp.dat
+
+
+
+	awk '/DSA/{c2++;tot2+=$4}
+	END{printf "Average Marks for DSA: %d\n",tot2/c2}' emp.dat
+
+
+	awk 'BEGIN {printf "Top two toppers of UNIX: \n\n"} /Unix/ {print $4,$2}' emp.dat | sort -r | head -3
+
+
+	awk 'BEGIN {printf "Top two toppers of DSA: \n\n"} /DSA/ {print $4,$2}' emp.dat | sort -r | head -3
+
+
+
+$sh marks.sh
+
+
+2. 
+	$ who|sort -k4|awk 'BEGIN{printf "Company Name and DATE \n"}
+	{count++; print $1,$4} 
+	END{printf "TOTAL USER COUNT: %d\n", count}'
+
+
+
+3.
+
+$vi result.awk
+	
+	BEGIN{printf"EmpName:EmpId:Subject:ObtMarks:TotMarks: Result\n "}
+	{
+	if($3=="Unix")
+	{result= $4*2;
+	printf "%s %s %s %d %d %d\n",$1,$2,$3,$4,$5,result
+	}
+	}
+
+
+$ awk -F ":" -f result.awk emp1.dat
+
+
+EmpName:EmpId:Subject:ObtMarks:TotMarks: Percentage
+ Nilesh E001 Unix 30 50 60
+Bhupesh E005 Unix 45 50 90
+Rupesh E007 Unix 43 50 86
+Durgesh E009 Unix 36 50 72
+Hitesh E010 Unix 41 50 82
+
+
+
+
+$vi pass.awk
+
+
+	BEGIN{printf"The number of participant passed are:"}
+	{if($4>30)
+	{count1++;}}
+	END{print count1}
+
+
+
+
+
+$vi top.sh
+
+	awk '{count++;}
+	END{printf"The number of participant appeared are : %d\n",count}' emp1.dat
+
+
+
+	
+	awk -F ":" -f pass.awk emp1.dat
+
+
+	awk -F ":" 'BEGIN{printf"THE TOP THREE PERSONS ARE : \n"}{print $1,$4}' emp1.dat|sort -r -k2|head -4
+
+
+$sh top.sh
+
+The number of participant appeared are : 10
+The number of participant passed are: 7
+THE TOP THREE PERSONS ARE :
+Bhupesh 45
+Rupesh 43
+Ramesh 41
+
+
+4. a)
+	awk -F "|" '{count++}
+	END{printf"THE NUMBER OF PARTICIPANTS ARE: %d\n",count}' roaster.dat
+	THE NUMBER OF PARTICIPANTS ARE: 11
+
+   b)$ awk -F "|" '{print $0}' roaster.dat| sort
+11 | Fitzgerald,Larry |WR6'04" |229| 08/31/1983 |10 |Pittsburgh
+20 | Anderson, Damien |RB 5'10" | 212 | 07/17/1979 | 3 |Northwestern
+30 | Ayanbadejo, Oba |FB 6'02" | 235 | 03/05/1975 | 5 |San Diego
+35 | Carter,Dyshod |DB5'10" |197 | 06/18/1978 |2 | Kansas State
+52 | Fisher,Levar |OLB6'01" |235 | 07/02/1979 |3| NorthCarolina
+63 |Garcia,Frank |G6'02" | 302| 01/28/1972|10|Washington
+64 |Grace,Steven |C6'03" |295| 02/13/1979 | 3|Arizona
+81 | Boldin,Anquan |WR6'01" |215 | 10/03/1980 |2 | FloridaState
+84 |Hamilton,Lawrence |WR6'03" |205 |08/31/1980 |2|StephenF.Austin
+91 | Bryant,Wendell |DT6'04" |303| 09/12/1980 | 3 | Wisconsin
+92 | Berry,Bert |DE6'03" | 250| 08/15/1975 | 7 |NotreDame
+
+   c) $ awk -F "|" '{print $0}' roaster.dat| sort -t "," -k2.1
+81 | Boldin,Anquan |WR6'01" |215 | 10/03/1980 |2 | FloridaState
+92 | Berry,Bert |DE6'03" | 250| 08/15/1975 | 7 |NotreDame
+20 | Anderson, Damien |RB 5'10" | 212 | 07/17/1979 | 3 |Northwestern
+35 | Carter,Dyshod |DB5'10" |197 | 06/18/1978 |2 | Kansas State
+63 |Garcia,Frank |G6'02" | 302| 01/28/1972|10|Washington
+11 | Fitzgerald,Larry |WR6'04" |229| 08/31/1983 |10 |Pittsburgh
+84 |Hamilton,Lawrence |WR6'03" |205 |08/31/1980 |2|StephenF.Austin
+52 | Fisher,Levar |OLB6'01" |235 | 07/02/1979 |3| NorthCarolina
+30 | Ayanbadejo, Oba |FB 6'02" | 235 | 03/05/1975 | 5 |San Diego
+64 |Grace,Steven |C6'03" |295| 02/13/1979 | 3|Arizona
+91 | Bryant,Wendell |DT6'04" |303| 09/12/1980 | 3 | Wisconsin
+
+
+   d)$ awk '{print $0}' roaster.dat|sort -t "|" -r -k4|head -5
+91 | Bryant,Wendell |DT6'04" |303| 09/12/1980 | 3 | Wisconsin
+63 |Garcia,Frank |G6'02" | 302| 01/28/1972|10|Washington
+64 |Grace,Steven |C6'03" |295| 02/13/1979 | 3|Arizona
+92 | Berry,Bert |DE6'03" | 250| 08/15/1975 | 7 |NotreDame
+52 | Fisher,Levar |OLB6'01" |235 | 07/02/1979 |3| NorthCarolina
+
+
+   e)]$ awk /Wisconsin/'{print $0}' roaster.dat|sort -t "|" -r -k4|head -5
+91 | Bryant,Wendell |DT6'04" |303| 09/12/1980 | 3 | Wisconsin
+
+
+
+
+5)
+
+<<<<<5>>>>
+
+
+sh payslip.sh 1001 & sh payslip2.sh 1001
+
+begin
+Empno 1001
+Deptno 20
+Job CLERK
+Currency INR
+-------------------
+Earnings
+-------------------
+
+BASIC 15000
+HRA 2500
+CONVEYANCE 4500
+MEDICAL 1200
+-------------------
+Total Earnings: 23200
+-------------------
+Deductions
+--------------------
+PF 300
+PROF_TAX 1300
+TDS 1409
+---------------------
+Net Pay :   20191
+--------------------------
+
+[1]   Done                    sh payslip.sh 1001
+[2]+  Done                    sh payslip.sh 1001
+
+<<<<<<<<<SCRIPT FILE  1>>>>>>>>>>>>
+
+[SEP19_RDBMS18@NDAUNIX ~]$ cat payslip.sh
+awk -F " " '
+BEGIN { print "begin"}
+{
+if($1=='$1')
+{
+printf"Empno %s\nDeptno %s\nJob %s\nCurrency INR\n",$1,$4,$3;
+printf"-------------------\n";
+printf"Earnings\n";
+printf"-------------------\n";
+}}' emp_mast
+
+
+<<<<<<<<<<<<<SCRIPT FILE   2>>>>>>>>>>>>>
+
+[SEP19_RDBMS18@NDAUNIX ~]$ cat payslip2.sh
+awk -F " " '
+BEGIN {}
+{
+if($1=='$1')
+{
+printf"\nBASIC %s\nHRA %s\nCONVEYANCE %s\nMEDICAL %s\n",$2,$3,$4,$5;
+printf"-------------------\n";
+printf"Total Earnings: %d\n",$2+$3+$4+$5;
+printf"-------------------\n";
+printf"Deductions\n";
+printf"--------------------\n";
+printf"PF %s\nPROF_TAX %s\nTDS %s\n",$6,$7,$8;
+tot=$2+$3+$4+$5;
+ttax=$6+$7+$8;
+printf"---------------------\n";
+printf"Net Pay :   %d\n",tot-ttax;
+printf"--------------------------\n\n";
+}}' dept_mast
+
+
+<<<<<5.1>>>>>>>>>
+
+[SEP19_RDBMS18@NDAUNIX ~]$ sh payslip3.sh 20
+---------------------------
+Empno   Name    Job
+---------------------------
+
+ 1001 Deepesh CLERK
+ 1002 Brijesh    TL
+-------------------
+
+
+[SEP19_RDBMS18@NDAUNIX ~]$ cat payslip3.sh
+awk -F " " '
+BEGIN {
+printf"---------------------------\n";
+printf"Empno \tName \tJob\n";
+print"---------------------------\n";
+}
+{
+if($4=='$1')
+{
+printf"%5s %5s %5s\n",$1,$2,$3;
+}
+}
+END {printf"-------------------\n";}' emp_mast
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

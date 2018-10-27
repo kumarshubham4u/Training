@@ -1,0 +1,71 @@
+LAB 9
+********************
+1. file *
+file errorlog.txt
+
+2.find . -name errorlog.txt -print
+./errorlog.txt
+
+3. find . -name demo -print
+./demo
+
+4.
+	1.$ sort -k1 student.txt
+manoj 55 B
+manoj 56 B
+rahul 87 A++
+rajat 25 C
+ramesh 79 A+
+suraj 45 B
+suraj 65 A
+suresh 88 A++
+
+	2.$ sort -k1.3 student.txt
+rahul 87 A++
+rajat 25 C
+ramesh 79 A+
+manoj 55 B
+manoj 56 B
+suraj 45 B
+suraj 65 A
+suresh 88 A++
+
+	3.]$ sort -n -k2 student.txt
+rajat 25 C
+suraj 45 B
+manoj 55 B
+manoj 56 B
+suraj 65 A
+ramesh 79 A+
+rahul 87 A++
+suresh 88 A++
+
+	4.sort -k1 -k3 student.txt
+manoj 55 B
+manoj 56 B
+rahul 87 A++
+rajat 25 C
+ramesh 79 A+
+suraj 45 B
+suraj 65 A
+suresh 88 A++
+
+	5.]$ cut -d" " -f1 student.txt | sort | uniq -d
+manoj
+suraj
+
+	6.$ cut -d" " -f1 student.txt | sort | uniq
+manoj
+rahul
+rajat
+ramesh
+suraj
+suresh
+
+
+
+
+
+
+
+
